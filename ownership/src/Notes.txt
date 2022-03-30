@@ -1,0 +1,20 @@
+1.  Some languages have garbage collection that constantly looks for no-longer used memory as the program runs; in other languages,
+    the programmer must explicitly allocate and free the memory. Rust uses a third approach: memory is managed through a system of 
+    ownership with a set of rules that the compiler checks. If any of the rules are violated, the program won’t compile. None of the 
+    features of ownership will slow down your program while it’s running.
+
+
+
+2.  Rust takes a different path: the memory is automatically returned once the variable that owns it goes out of scope.
+    Here’s a version of our scope example from Listing sing a String instead of a string literal:
+
+
+
+      {
+        let s = String::from("hello"); // s is valid from this point forward
+
+        // do stuff with s
+    }     
+3.  There is a natural point at which we can return the memory our String needs to the allocator: when s goes out of scope.     
+    When a variable goes out of scope, Rust calls a special function for us. This function is called drop, and it’s where the 
+    author of String can put the code to return the memory. Rust calls drop automatically at the closing curly bracket.

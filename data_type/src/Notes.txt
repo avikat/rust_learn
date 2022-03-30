@@ -1,0 +1,4 @@
+---------------While and for loop Comparison to go through a array.---
+
+While loop is also slow, because the compiler adds runtime code to perform the conditional 
+check of whether the index is within the bounds of the array on every iteration through the loop
